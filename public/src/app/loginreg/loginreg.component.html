@@ -1,0 +1,262 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+    <style>
+        .register {
+          
+            border: solid black;
+            width: 400px;
+            height: 530px;
+            background-size: 390px 420px;        
+            background-image: 
+            linear-gradient(rgba(0, 0, 0, 0.5),
+             rgba(0, 0, 0, 0.5)), 
+            url("assets/checkerwoodbg.jpg");
+            margin: 0 auto;
+            margin-top: 28px;
+            margin-bottom: 10px;
+
+
+        } 
+        .headers {
+            text-align: center;
+            text-decoration-line: underline;
+            color: white;
+            font-family: 'Ubuntu Condensed', sans-serif;
+        }
+
+        .login {
+            
+            vertical-align: top;
+            border: solid black;
+            width: 400px;
+            height: 300px;
+           
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)), url("assets/checkerwoodbg.jpg");
+            background-size: 390px 420px;
+            margin: 0 auto;
+
+
+
+        }
+        .not {
+            font-size: 13px;
+            background-color: white;
+            color: red;
+            display: inline-block;
+            text-align: top; 
+            margin-left: 31px;
+            
+            
+        }
+        .trigger {
+            font-size: 13px;
+            background-color: red;
+            color: white;
+            display: inline-block;
+            text-align: top; 
+            margin-left: 31px;
+            
+            
+        }
+
+        .fields {
+            margin-left: 10px;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        input {
+            margin-left: 5px;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)), url("assets/woodtt.jpg");
+
+
+
+        }
+
+        h2 {
+            text-align: center;
+            background-color: white;
+            width: 350px;
+            margin-left: 20px;
+            font-family: Verdana;
+            margin-top: 7px;
+
+        }
+
+        .button {
+            background-color: #3C4C5B;
+            align-content: center;
+            margin-left: 282px;
+            width: 100px;
+            color: white;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div>
+            <h5
+                style=" font-family: 'Pacifico', cursive;color: whitesmoke; text-align: center; margin-left: 133px; font-size: 40px">
+                The Pro Ping Pong Coach Connection</h5>
+
+        </div>
+
+
+        <div class="register">
+            <div class="form-row">
+                <form (submit)="register()">
+                    <div class="form-group col-md-6">
+                        <h4 class ="headers">Register</h4>
+
+
+                        <p class ="fields"><input type="text" name="first" placeholder="first name" [(ngModel)]="newUser.first"
+                                required minlength="2" #first="ngModel" />
+                        </p>
+                    </div>
+                    <div *ngIf="first.invalid && (first.dirty || first.touched)"
+                    class="not">
+
+                    <div *ngIf="first.errors.required">
+                        First-name is required.
+                        </div>
+                        <div *ngIf="first.errors.minlength">
+                            Must be at least 2 characters.
+                        </div>
+
+                    </div>
+                    <div class = "trigger">
+                            <p *ngIf="newUser.first.length < 2 && buttonTriggered">
+                                    The first name submitted was less than 2 characters.Please try again.
+                            </p>
+                        </div>
+
+
+
+
+                    <div class="form-group col-md-6">
+                        <p class ="fields"><input type="text" name="last" required minlength ="2" [(ngModel)]="newUser.last" #last="ngModel" placeholder="last name" />
+                        </p>
+                    </div>
+
+                    <div *ngIf="last.invalid && (last.dirty || last.touched)"
+                    class="not ">
+
+                        <div *ngIf="last.errors.required">
+                            Last-name is required.
+                        </div>
+                        <div *ngIf="last.errors.minlength">
+                            Last-name must be at least 2 characters long.
+                        </div>
+
+
+                    </div>
+                    <div class = "trigger">
+                            <p *ngIf="newUser.last.length < 2 && buttonTriggered">
+                                    The last name submitted was less than 2 characters.Please try again.
+                            </p>
+                        </div>
+
+
+
+                    <div class="form-group col-md-6">
+                        <p class ="fields"><input type="email" name="email" [(ngModel)]="newUser.email" required minlength="4" #email = "ngModel" placeholder="email address" /></p>
+                    </div>
+
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                    class="not">
+    
+                        <div *ngIf="email.errors.required">
+                            Email must be valid.
+                        </div>
+                        
+                        <div *ngIf="email.errors.minlength">
+                            Email must be valid.
+                        </div>
+    
+                    </div> 
+                    <div class = "trigger">
+                        <p *ngIf="newUser.email.length < 6 && buttonTriggered">
+                                The Email submitted was invalid.
+                        </p>
+                    </div>
+
+
+
+
+
+                    <div class="form-group col-md-6">
+                        <p class = "fields"><input type="password" name="password" required minlength = "5" [(ngModel)]="newUser.password"  #password = "ngModel" placeholder="password" /></p>
+                    </div>
+
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                    class="not">
+
+                        <div *ngIf="password.errors.required">
+                            Password is required.
+                        </div>
+                        <div *ngIf="password.errors.minlength">
+                            Password must be at least 5 characters long.
+                        </div>
+
+                    </div>
+                    <div class = "trigger">
+                            <p *ngIf="newUser.password.length < 5 && buttonTriggered">
+                                    The password submitted was less than 5 characters.Please try again.
+                            </p>
+                        </div>
+
+                    <div class="form-group col-md-6">
+                        <p class = "fields"><input type="submit" value="Register" [disabled]="newUser.password.length < 5"/></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="login">
+            <div class="form-row">
+                <form (submit)="login()">
+                    <div class="form-group col-md-6">
+                        <h4 class ="headers">Login</h4>
+                        <p class ="fields"><input type="text" name="currentUser.email" [(ngModel)]="currentUser.email"
+                                placeholder="email address" /></p>
+                    </div>
+                    <div class = "trigger">
+                            <p *ngIf="currentUser.email.length < 5 && buttonTriggered">
+                                    Login info is invalid.Please try again.
+                            </p>
+                        </div>
+
+                    <div class="form-group col-md-6">
+                        <p class = "fields"><input type="password" name="currentUser.password" [(ngModel)]="currentUser.password"
+                                placeholder="password"></p>
+                        <p class="fields"><input type="submit" value="Login" /></p>
+                    </div>
+                    <div class = "trigger">
+                            <p *ngIf="currentUser.password.length < 5 && buttonTriggered">
+                                    Login info is invalid. Please try again.
+                            </p>
+                        </div>
+                        <div class = "not">
+                                <p *ngIf="notFound">
+                                        User is not found.
+                                </p>
+                            </div>
+
+    <!-- </div> 
+    
+</body> -->
+
