@@ -7,7 +7,7 @@ import { CoachesComponent } from './coaches/coaches.component';
 import { AboutComponent } from './about/about.component';
 import { BookComponent } from './book/book.component';
 import { ContactComponent } from './contact/contact.component';
-import { CongratsComponent } from './congrats/congrats.component';
+
 
 
 const routes: Routes = [ 
@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'about',component: AboutComponent },
   { path: 'book',component: BookComponent },
   { path: 'contact',component: ContactComponent },
-  { path: 'congrats',component: CongratsComponent }
+ 
 
 
 ];

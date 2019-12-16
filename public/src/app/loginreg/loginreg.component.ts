@@ -8,24 +8,23 @@ import { HttpService } from '../http.service';
   styleUrls: ['./loginreg.component.css']
 })
 export class LoginregComponent implements OnInit {
-  newUser: any;
-  currentUser: any; 
+
   error: any;
   buttonTriggered = false;
-  
-  petetest = ""
   notFound: any;
-
+  newUser = {first: "", last: "", email: "", address:"", city : "", state: "",  zip: "", password: "", passwordconfirm: ""}
+  currentUser = {email: "", password: ""};
   constructor(private _httpService: HttpService,private _route: ActivatedRoute,
     private _router: Router) {}
 
-  ngOnInit() {
-    this.newUser = {first: "", last: "", email: "", address:"", city : "", state: "",  zip: "", password: "", passwordconfirm: ""}
-    this.currentUser = {email: "", password: ""}
-    
-  }
+  ngOnInit() {}
+  
+  //checks for login
   login(){
+    //buttontriggered for when submit button gets pressed
     this.buttonTriggered = true;
+
+    //observable takes data for login and checks it
     let tempObservable = this._httpService.signin(this.currentUser);
     tempObservable.subscribe (data =>{
       console.log("signing in the user", data)
@@ -40,13 +39,9 @@ export class LoginregComponent implements OnInit {
     })
 
   }
+  //registers and validates user
   register(){
-    // if(this.newUser.email.length < 10){
-    //   this.petetest = "Email must be more than 3 characters"
-    // } else {
-
-    // }
-
+    //for validation message on submits
     this.buttonTriggered = true;
     let tempObservable = this._httpService.addUser(this.newUser);
     tempObservable.subscribe (data =>{

@@ -20,9 +20,12 @@ export class BookComponent implements OnInit {
     private _router: Router){}
 
   ngOnInit() {
+    //initates newLesson or newBooking
     this.newLesson = {street:"",city: "",day: "", request: "",time: "", hours: "",type:"" }
     this.newEvent = {street:"",city: "",day: "", request: "",time: "", hours: "",type:"" }
   }
+
+  //adds and validates lesson booking
   addLesson() {
     this.buttonTriggered = true;
     console.log(this.newLesson)
@@ -44,6 +47,8 @@ export class BookComponent implements OnInit {
     
     })
   }
+
+  //adds and validates event booking
   addEvent() {
     this.buttonTriggered = true;
     console.log(this.newEvent)

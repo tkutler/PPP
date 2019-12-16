@@ -12,7 +12,7 @@ import { CoachesComponent } from './coaches/coaches.component';
 import { RatesComponent } from './rates/rates.component';
 import { BookComponent } from './book/book.component';
 import { ContactComponent } from './contact/contact.component';
-import { CongratsComponent } from './congrats/congrats.component';
+
 
 
 
@@ -26,7 +26,6 @@ import { CongratsComponent } from './congrats/congrats.component';
     RatesComponent,
     BookComponent,
     ContactComponent,
-    CongratsComponent
   ],
   imports: [
     BrowserModule,
